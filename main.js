@@ -2,7 +2,24 @@
 const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 
-// Your JavaScript code goes here!
+function clickLike() {
+    document.addEventListener('DOMContentLoaded', () => {
+    //const likeBtn = document.getElementsByClassName('like-glyph');
+    EMPTY_HEART.addEventListener('click', console.log(mimicServerCall))
+  })
+}
+
+/*function eventClick(click) {
+  fetch('http://mimicServer.example.com', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body:JSON.stringify(click)
+  })
+  .then(res => res.json())
+  .then(click => likerBtn(click))
+}*/
 
 
 
