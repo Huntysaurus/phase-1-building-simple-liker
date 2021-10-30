@@ -3,20 +3,25 @@ document.addEventListener('DOMContentLoaded', () => {
 const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 
-const buttons = document.querySelectorAll('span.like-glyph')
+const buttons = document.querySelectorAll('.like-glyph')
 console.log(buttons)
 
-buttons.forEach(buttons => buttons.addEventListener('click', clickLike))
+buttons.forEach(button => button.addEventListener('click', clickLike))
 
-function clickLike(buttons){
-  console.log(buttons.target)
-  mimicServerCall()
+function clickLike(e){
+  const heart = e.target
+  mimicServerCall('fgjbgrrger')
   .then(() => {
-    if (buttons.target.innerTEXT === EMPTY_HEART) {
-      buttons.target.innerTEXT = FULL_HEART
-    }
-    else if (buttons.target.innerTEXT === FULL_HEART) {
-      buttons.target.innerTEXT = EMPTY_HEART
+    console.log('first condition', heart.innerTEXT === EMPTY_HEART)
+    console.log(heart.innerTEXT, EMPTY_HEART)
+    if (heart.innerTEXT === EMPTY_HEART) {
+      console.log('was empty', heart.innerTEXT)
+      heart.innerTEXT = FULL_HEART
+      heart.className = 'activated-heart'
+    } else {
+      console.log('was full', heart.innerTEXT)
+      heart.innerTEXT = EMPTY_HEART
+      heart.className = ''
     }
   })
   .catch(() => {
